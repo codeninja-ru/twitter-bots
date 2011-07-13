@@ -80,7 +80,7 @@ def main():
 	streamListener = PogodkaWatcherListener()
 	streamListener.twitter = twitter
 	stream = tweepy.Stream(twitter.username, twitter.password, streamListener, timeout=None)
-	stream.filter(None, ["погода","погодка","дождь"])
+	stream.filter(None, ["погодка", "погода"])
 
 
 if __name__ == '__main__':
