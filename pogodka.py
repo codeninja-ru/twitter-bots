@@ -56,31 +56,6 @@ class MyTwitter(object):
 			self.api.update_status(status, in_reply_to_status_id)
 
 def main():
-	# reading config file
-
-#	config = ConfigParser.RawConfigParser()
-#	config.read('pogodka.cfg')
-#	username = config.get('twitter', 'username')
-#	password = config.get('twitter', 'password')
-#	consumer_key = config.get('twitter', 'consumer_key')
-#	consumer_secret = config.get('twitter', 'consumer_secret')
-#	consumer_key = config.get('twitter', 'consumer_key')
-#	oauth_token = config.get('twitter', 'oauth_token')
-#	oauth_secret = config.get('twitter', 'oauth_secret')
-#
-#
-#	# auth
-#	auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-#	auth.set_access_token(oauth_token, oauth_secret)
-#
-#	api = tweepy.API(auth)
-#	#api.update_status('хоршая погода')
-#
-
-	#username = raw_input('Twitter username: ')
-	#password = getpass('Twitter password: ')
-
-
 	twitter = MyTwitter()
 	streamListener = PogodkaWatcherListener()
 	streamListener.twitter = twitter
