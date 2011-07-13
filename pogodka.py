@@ -51,6 +51,7 @@ class MyTwitter(object):
 			self.api.update_status(status)
 	
 	def reply(self, status, in_reply_to_status_id):
+		print status
 		if len(status) < 140:
 			self.api.update_status(status, in_reply_to_status_id)
 
