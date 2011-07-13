@@ -13,7 +13,7 @@ class PogodkaWatcherListener(tweepy.StreamListener):
 			text = status.text
 			if len(text) < 100 and not text.count('@') and not text.count('http'):
 				msg = status.text + " RT @" + status.author.screen_name
-				self.twitter.update_status(msg)
+				self.twitter.reply(msg, status.id)
         except:
             # Catch any unicode errors while printing to console
             # and just ignore them to avoid breaking application.
@@ -45,10 +45,14 @@ class MyTwitter(object):
 
 		self.api = tweepy.API(self.auth)
 		#api.update_status('хоршая погода')
-	def update_status(self, status):
+	def tweet(self, status):
 		print status
 		if len(status) < 140: 
 			self.api.update_status(status)
+	
+	def reply(self, status, in_reply_to_status_id):
+		if len(status) < 140:
+			self.api.update_status(status, in_reply_to_status_id)
 
 def main():
 	# reading config file
